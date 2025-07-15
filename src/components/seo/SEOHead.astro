@@ -1,0 +1,76 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+  ogImage: string;
+  canonicalURL: string;
+}
+
+const { title, description, keywords, ogImage, canonicalURL } = Astro.props;
+
+const fullTitle = title.includes('Herencia Cósmica') ? title : `${title} | Herencia Cósmica`;
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogImage}`;
+---
+
+
+<!-- Basic Meta Tags -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content="Herencia Cósmica" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Title -->
+<title>{fullTitle}</title>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:site_name" content="Herencia Cósmica" />
+<meta property="og:locale" content="es_ES" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullOgImage} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Preload Critical Resources -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" as="style" />
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Herencia Cósmica",
+  "url": "https://www.herenciacosmica.com",
+  "logo": "https://www.herenciacosmica.com/images/logo.png",
+  "description": "Reclama tu herencia cósmica a través de la astrología ancestral. Carta natal gratuita, interpretaciones personalizadas.",
+  "sameAs": [
+    "https://www.facebook.com/herenciacosmica",
+    "https://www.instagram.com/herenciacosmica"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer service",
+    "availableLanguage": "Spanish"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Costa Rica"
+  },
+  "serviceType": "Astrological Services"
+}
+</script>

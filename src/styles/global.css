@@ -1,0 +1,150 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  /* Mystical text gradient */
+  .mystical-text {
+    background: linear-gradient(135deg, #8B5CF6, #EC4899, #F59E0B);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Cosmic background */
+  .cosmic-bg {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 25%, #4c1d95 50%, #581c87 75%, #3b0764 100%);
+    position: relative;
+    min-height: 100vh;
+  }
+
+  .cosmic-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.9), transparent),
+      radial-gradient(1px 2px at 130px 80px, rgba(255,255,255,0.4), transparent),
+      radial-gradient(2px 1px at 160px 30px, rgba(255,255,255,0.7), transparent);
+    background-size: 200px 200px;
+    animation: twinkle 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Glass card effect */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  /* Mystical button */
+  .mystical-button {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 50%, #F59E0B 100%);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: white;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .mystical-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .mystical-button:hover::before {
+    left: 100%;
+  }
+
+  .mystical-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+  }
+
+  /* Section spacing */
+  .section-padding {
+    padding: 5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 3rem 0;
+    }
+  }
+
+  /* Active navigation highlighting */
+  .nav-active {
+    color: #F59E0B !important;
+    position: relative;
+  }
+
+  .nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #8B5CF6, #EC4899, #F59E0B);
+    border-radius: 1px;
+    animation: slideIn 0.3s ease-out;
+  }
+
+  @keyframes slideIn {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure sections are properly spaced for navigation */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+}

@@ -1,0 +1,26 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import Hero from '../components/sections/Hero.astro';
+import Features from '../components/sections/Features.astro';
+import HowItWorks from '../components/sections/HowItWorks.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import FAQ from '../components/sections/FAQ.astro';
+import CTA from '../components/sections/CTA.astro';
+import '../styles/global.css';
+
+const seoData = {
+  title: "Herencia Cósmica - Reclama tu Herencia Cósmica | Carta Natal Gratuita",
+  description: "Reclama tu herencia cósmica a través de la astrología ancestral. Carta natal gratuita, interpretaciones personalizadas. Los secretos que el cosmos te heredó.",
+  keywords: "herencia cósmica, carta natal, astrología, propósito de vida, horóscopo personalizado, carta astral, astrología gratis, interpretación astrológica, signos zodiacales, planetas, casas astrológicas",
+  ogImage: "/images/og-home.jpg"
+};
+---
+
+<Layout {...seoData}>
+  <Hero />
+  <Features />
+  <HowItWorks />
+  <Testimonials />
+  <FAQ />
+  <CTA />
+</Layout>

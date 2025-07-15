@@ -1,0 +1,57 @@
+---
+import SEOHead from '../seo/SEOHead.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = "carta natal, astrología, propósito de vida, horóscopo personalizado",
+  ogImage = "/images/og-default.jpg",
+  canonicalURL = Astro.url.href
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <SEOHead 
+      title={title}
+      description={description}
+      keywords={keywords}
+      ogImage={ogImage}
+      canonicalURL={canonicalURL}
+    />
+  </head>
+  <body class="cosmic-bg">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    
+    <!-- Analytics Scripts -->
+    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'GA_MEASUREMENT_ID');
+    </script>
+  </body>
+</html>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>

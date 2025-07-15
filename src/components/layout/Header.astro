@@ -1,0 +1,110 @@
+---
+---
+
+<header class="fixed top-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
+  <nav class="container mx-auto px-6 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <h1 class="text-2xl font-serif font-bold mystical-text">
+          <a href="#inicio" class="mystical-text">Herencia Cósmica</a>
+        </h1>
+      </div>
+
+      <!-- Navigation Links (Desktop) -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#inicio" class="text-white/80 hover:text-white transition-colors">Inicio</a>
+        <a href="#servicios" class="text-white/80 hover:text-white transition-colors">Servicios</a>
+        <a href="#testimonios" class="text-white/80 hover:text-white transition-colors">Testimonios</a>
+        <a href="#FAQ" class="text-white/80 hover:text-white transition-colors">Preguntas Frecuentes</a>
+        <a href="https://app.herenciacosmica.com" class="mystical-button text-sm px-6 py-2">
+          Iniciar Sesión
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white" id="mobile-menu-button">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden" id="mobile-menu">
+      <div class="pt-4 pb-2 space-y-2">
+        <a href="#inicio" class="block text-white/80 hover:text-white py-2">Inicio</a>
+        <a href="#servicios" class="block text-white/80 hover:text-white py-2">Servicios</a>
+        <a href="#testimonios" class="block text-white/80 hover:text-white py-2">Testimonios</a>
+        <a href="#FAQ" class="block text-white/80 hover:text-white py-2">Preguntas Frecuentes</a>
+        <a href="https://app.herenciacosmica.com" class="block mystical-button text-center mt-4">
+          Iniciar Sesión
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+      const target = href ? document.querySelector(href) : null;
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      
+      // Close mobile menu after clicking a link
+      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  });
+
+  // Active menu highlighting with Intersection Observer
+  document.addEventListener('DOMContentLoaded', function() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    
+    // Create intersection observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          
+          // Remove active class from all nav links
+          navLinks.forEach(link => {
+            link.classList.remove('nav-active');
+          });
+          
+          // Add active class to current section's nav link
+          const activeLink = document.querySelector(`a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('nav-active');
+          }
+        }
+      });
+    }, {
+      threshold: 0.3,
+      rootMargin: '-100px 0px -50% 0px'
+    });
+
+    // Observe all sections
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

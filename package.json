@@ -1,0 +1,33 @@
+{
+  "name": "herencia-cosmica-landing",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/sitemap": "^3.4.1",
+    "@astrojs/tailwind": "^6.0.2",
+    "@fontsource/cormorant-garamond": "^5.2.9",
+    "@fontsource/inter": "^5.2.6",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.11.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.2.3",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "lightningcss": "^1.30.1"
+  }
+}
