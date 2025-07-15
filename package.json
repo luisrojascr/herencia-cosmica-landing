@@ -2,6 +2,7 @@
   "name": "herencia-cosmica-landing",
   "type": "module",
   "version": "0.0.1",
+  "author": "Luis Rojas",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
