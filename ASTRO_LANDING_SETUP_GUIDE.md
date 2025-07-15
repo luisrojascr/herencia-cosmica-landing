@@ -841,7 +841,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
           </div>
           <div>
             <p class="text-white font-semibold">Carlos Mendoza</p>
-            <p class="text-white/60 text-sm">Psicólogo</p>
+            <p class="text-white/60 text-sm">Contador</p>
           </div>
         </div>
       </div>
@@ -856,7 +856,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
         <p class="text-white/90 mb-6 italic">
           "Como empresaria, la información sobre abundancia y prosperidad 
           me dio claridad sobre las mejores decisiones financieras. 
-          Mi negocio ha crecido un 300% este año."
+          Mi negocio ha crecido un 200% este año."
         </p>
         <div class="flex items-center">
           <div class="w-12 h-12 bg-mystical-gradient rounded-full flex items-center justify-center text-white font-semibold mr-4">
