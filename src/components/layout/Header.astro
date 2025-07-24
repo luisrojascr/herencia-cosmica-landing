@@ -6,9 +6,14 @@
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center space-x-2">
-        <h1 class="text-2xl font-serif font-bold mystical-text">
-          <a href="#inicio" class="mystical-text">Herencia Cósmica</a>
-        </h1>
+          <a href="#inicio"><img 
+            src="/images/logo-horizontal-b.png" 
+            width={240} 
+            height={63}
+            alt="Logo Herencia Cósmica" 
+            class="h-auto max-w-full"
+            loading="lazy"
+          /></a>
       </div>
 
       <!-- Navigation Links (Desktop) -->
@@ -90,10 +95,12 @@
             link.classList.remove('nav-active');
           });
           
-          // Add active class to current section's nav link
-          const activeLink = document.querySelector(`a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add('nav-active');
+          // Add active class to current section's nav link (exclude inicio)
+          if (id !== 'inicio') {
+            const activeLink = document.querySelector(`a[href="#${id}"]`);
+            if (activeLink) {
+              activeLink.classList.add('nav-active');
+            }
           }
         }
       });
@@ -108,3 +115,42 @@
     });
   });
 </script>
+
+<style>
+  /* Base styling for nav links */
+  nav a[href^="#"] {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+  
+  /* Active menu item styling */
+  nav a[href^="#"].nav-active {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
+  }
+  
+  /* Active underline effect */
+  nav a[href^="#"].nav-active::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #8B5CF6, #A855F7);
+    border-radius: 1px;
+    display: block;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  }
+  
+  /* Mobile menu active styling */
+  #mobile-menu a[href^="#"].nav-active {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2));
+    border-radius: 6px;
+    padding-left: 12px !important;
+  }
+</style>
