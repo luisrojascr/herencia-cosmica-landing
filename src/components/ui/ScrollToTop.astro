@@ -1,0 +1,64 @@
+---
+---
+
+<button
+  id="scroll-to-top"
+  class="fixed bottom-8 right-8 z-50 flex h-12 w-12 translate-y-20 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-purple-700 text-white shadow-lg shadow-indigo-500/30 transition-all duration-500 hover:scale-110 hover:shadow-indigo-500/50 focus:outline-none opacity-0 invisible"
+  aria-label="Volver arriba"
+>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-6 w-6"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 10l7-7m0 0l7 7m-7-7v18"
+    />
+  </svg>
+</button>
+
+<script>
+  const scrollBtn = document.getElementById('scroll-to-top');
+
+  const handleScroll = () => {
+    if (window.scrollY > 300) {
+      scrollBtn?.classList.remove('translate-y-20', 'opacity-0', 'invisible');
+      scrollBtn?.classList.add('translate-y-0', 'opacity-100', 'visible');
+    } else {
+      scrollBtn?.classList.add('translate-y-20', 'opacity-0', 'invisible');
+      scrollBtn?.classList.remove('translate-y-0', 'opacity-100', 'visible');
+    }
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  scrollBtn?.addEventListener('click', scrollToTop);
+</script>
+
+<style>
+  #scroll-to-top {
+    /* Subtle glow animation */
+    box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+    animation: cosmic-pulse 3s infinite ease-in-out;
+  }
+
+  @keyframes cosmic-pulse {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+    }
+  }
+</style>

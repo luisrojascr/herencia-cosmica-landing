@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = [
   { name: 'Inicio', href: '#inicio' },
-  { name: 'Servicios', href: '#servicios' },
+  { name: 'Detalles', href: '#detalles' },
   { name: 'Testimonios', href: '#testimonios' },
   { name: 'Precios', href: '#precios' }
 ];

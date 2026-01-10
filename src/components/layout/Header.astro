@@ -18,121 +18,216 @@
 
       <!-- Navigation Links (Desktop) -->
       <div class="hidden md:flex items-center space-x-8">
-        <a href="#inicio" class="text-white/80 hover:text-white transition-colors">Inicio</a>
-        <a href="#servicios" class="text-white/80 hover:text-white transition-colors">Servicios</a>
-        <a href="#testimonios" class="text-white/80 hover:text-white transition-colors">Testimonios</a>
-        <a href="#FAQ" class="text-white/80 hover:text-white transition-colors">Preguntas Frecuentes</a>
+        <a href="#inicio" class="nav-link text-white/80 hover:text-white transition-colors">Inicio</a>
+        <a href="#detalles" class="nav-link text-white/80 hover:text-white transition-colors">Detalles</a>
+        <a href="#testimonios" class="nav-link text-white/80 hover:text-white transition-colors">Testimonios</a>
+        <a href="#FAQ" class="nav-link text-white/80 hover:text-white transition-colors">Preguntas Frecuentes</a>
         <a href="https://app.herenciacosmica.com" class="mystical-button text-sm px-6 py-2">
           Iniciar Sesión
         </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button class="md:hidden text-white" id="mobile-menu-button">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+    <!-- Mobile Menu Button -->
+      <button class="md:hidden text-white relative w-8 h-8 flex items-center justify-center z-[60]" id="mobile-menu-button" aria-label="Toggle Menu">
+        <div class="hamburger-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="md:hidden hidden" id="mobile-menu">
-      <div class="pt-4 pb-2 space-y-2">
-        <a href="#inicio" class="block text-white/80 hover:text-white py-2">Inicio</a>
-        <a href="#servicios" class="block text-white/80 hover:text-white py-2">Servicios</a>
-        <a href="#testimonios" class="block text-white/80 hover:text-white py-2">Testimonios</a>
-        <a href="#FAQ" class="block text-white/80 hover:text-white py-2">Preguntas Frecuentes</a>
-        <a href="https://app.herenciacosmica.com" class="block mystical-button text-center mt-4">
-          Iniciar Sesión
-        </a>
-      </div>
+      </button>
     </div>
   </nav>
 </header>
 
+<!-- Mobile Menu (Moved outside header to avoid coordinate/height constraints) -->
+<div class="fixed inset-0 bg-[#42238d]/95 backdrop-blur-xl z-[100] md:hidden flex flex-col items-center justify-center translate-x-full transition-transform duration-500 ease-in-out" id="mobile-menu">
+  <!-- Close Button (X) -->
+  <button class="absolute top-6 right-6 text-white/80 hover:text-white p-2" id="mobile-menu-close" aria-label="Close Menu">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+
+  <div class="flex flex-col items-center space-y-8 text-2xl font-medium">
+    <a href="#inicio" class="mobile-nav-link text-white/70 hover:text-white transition-all duration-300">Inicio</a>
+    <a href="#detalles" class="mobile-nav-link text-white/70 hover:text-white transition-all duration-300">Detalles</a>
+    <a href="#testimonios" class="mobile-nav-link text-white/70 hover:text-white transition-all duration-300">Testimonios</a>
+    <a href="#FAQ" class="mobile-nav-link text-white/70 hover:text-white transition-all duration-300">Preguntas Frecuentes</a>
+    <div class="pt-8">
+      <a href="https://app.herenciacosmica.com" class="mystical-button block text-center px-10 py-4 text-xl">
+        Iniciar Sesión
+      </a>
+    </div>
+  </div>
+  
+  <!-- Decorative element -->
+  <div class="absolute bottom-10 opacity-20 pointer-events-none">
+    <img src="/images/logo-horizontal-b.png" width="200" alt="" class="grayscale brightness-200" />
+  </div>
+</div>
+
 <script>
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
+  const body = document.body;
 
-  mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
+  function toggleMenu() {
+    const isOpen = mobileMenu?.classList.contains('translate-x-0');
+    
+    if (isOpen) {
+      // Close menu
+      mobileMenu?.classList.add('translate-x-full');
+      mobileMenu?.classList.remove('translate-x-0');
+      mobileMenuButton?.classList.remove('active');
+      body.classList.remove('overflow-hidden');
+    } else {
+      // Open menu
+      mobileMenu?.classList.remove('translate-x-full');
+      mobileMenu?.classList.add('translate-x-0');
+      mobileMenuButton?.classList.add('active');
+      body.classList.add('overflow-hidden');
+      
+      // Animate links
+      const links = document.querySelectorAll('.mobile-nav-link');
+      links.forEach((link, index) => {
+        (link as HTMLElement).style.opacity = '0';
+        (link as HTMLElement).style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          (link as HTMLElement).style.transition = 'all 0.5s ease-out';
+          (link as HTMLElement).style.opacity = '1';
+          (link as HTMLElement).style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+      });
+    }
+  }
+
+  mobileMenuButton?.addEventListener('click', toggleMenu);
+  mobileMenuClose?.addEventListener('click', toggleMenu);
 
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      e.preventDefault();
       const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
-      const target = href ? document.querySelector(href) : null;
+      if (!href || href === '#') return;
+      
+      e.preventDefault();
+      const target = document.querySelector(href);
       if (target) {
+        // If it's a mobile link, close the menu first
+        const clickedElement = e.currentTarget as HTMLAnchorElement;
+        if (clickedElement.classList.contains('mobile-nav-link') || mobileMenuButton?.classList.contains('active')) {
+          toggleMenu();
+        }
+        
         target.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
       }
-      
-      // Close mobile menu after clicking a link
-      if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.add('hidden');
-      }
     });
   });
 
-  // Active menu highlighting with Intersection Observer
+  // Active menu highlighting with scroll-based detection
   document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('a[href^="#"]');
+    // Only select nav-link elements (desktop) - excludes the logo
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     
-    // Create intersection observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          
-          // Remove active class from all nav links
-          navLinks.forEach(link => {
-            link.classList.remove('nav-active');
-          });
-          
-          // Add active class to current section's nav link (exclude inicio)
-          if (id !== 'inicio') {
-            const activeLink = document.querySelector(`a[href="#${id}"]`);
-            if (activeLink) {
-              activeLink.classList.add('nav-active');
-            }
-          }
+    let currentActiveSection: string | null = null;
+    
+    // Function to update active links
+    function setActiveLink(id: string | null) {
+      if (id === currentActiveSection) return; // Avoid unnecessary updates
+      
+      currentActiveSection = id;
+      
+      // Remove active class from all nav links (desktop and mobile)
+      navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+      });
+      mobileNavLinks.forEach(link => {
+        link.classList.remove('nav-active');
+      });
+      
+      // Add active class to current section's nav link (only nav-link and mobile-nav-link)
+      if (id) {
+        const activeDesktopLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        const activeMobileLink = document.querySelector(`.mobile-nav-link[href="#${id}"]`);
+        
+        if (activeDesktopLink) activeDesktopLink.classList.add('nav-active');
+        if (activeMobileLink) activeMobileLink.classList.add('nav-active');
+      }
+    }
+    
+    // Scroll-based detection - more reliable than Intersection Observer
+    function updateActiveSection() {
+      const scrollPosition = window.scrollY + 150; // Offset for header + some buffer
+      
+      let activeId: string | null = null;
+      
+      // Find the section that contains the current scroll position
+      sections.forEach((section) => {
+        const sectionElement = section as HTMLElement;
+        const sectionTop = sectionElement.offsetTop;
+        const sectionHeight = sectionElement.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          activeId = sectionId;
         }
       });
-    }, {
-      threshold: 0.3,
-      rootMargin: '-100px 0px -50% 0px'
+      
+      // If no section found (at very top), default to "inicio"
+      if (!activeId && window.scrollY < 100) {
+        activeId = 'inicio';
+      }
+      
+      // Only update if we found an active section
+      if (activeId) {
+        setActiveLink(activeId);
+      }
+    }
+    
+    // Throttled scroll handler for better performance
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
     });
-
-    // Observe all sections
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    
+    // Initial check
+    updateActiveSection();
   });
 </script>
 
 <style>
-  /* Base styling for nav links */
-  nav a[href^="#"] {
+  /* Base styling for nav links (only .nav-link, not logo) */
+  .nav-link {
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
   }
   
-  /* Active menu item styling */
-  nav a[href^="#"].nav-active {
+  /* Active menu item styling - Desktop */
+  .nav-link.nav-active {
     color: #ffffff !important;
     font-weight: 600 !important;
     text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
   }
   
-  /* Active underline effect */
-  nav a[href^="#"].nav-active::after {
+  /* Active underline effect for desktop */
+  .nav-link.nav-active::after {
     content: '';
     position: absolute;
     bottom: -6px;
@@ -144,13 +239,46 @@
     display: block;
     box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
   }
-  
-  /* Mobile menu active styling */
-  #mobile-menu a[href^="#"].nav-active {
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    background: linear-gradient(90deg, rgba(139, 92, 246, 0.2), rgba(168, 85, 247, 0.2));
-    border-radius: 6px;
-    padding-left: 12px !important;
+
+  /* Hamburger Icon Animation */
+  .hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #mobile-menu-button.active .hamburger-icon span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #mobile-menu-button.active .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  #mobile-menu-button.active .hamburger-icon span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile link active state */
+  .mobile-nav-link.nav-active {
+    color: white !important;
+    transform: scale(1.1);
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1));
+    padding: 0.5rem 2rem;
+    border-radius: 9999px;
   }
 </style>

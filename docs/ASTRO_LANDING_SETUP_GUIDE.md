@@ -462,7 +462,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
       <!-- Navigation Links (Desktop) -->
       <div class="hidden md:flex items-center space-x-8">
         <a href="#inicio" class="text-white/80 hover:text-white transition-colors">Inicio</a>
-        <a href="#servicios" class="text-white/80 hover:text-white transition-colors">Servicios</a>
+        <a href="#detalles" class="text-white/80 hover:text-white transition-colors">Detalles</a>
         <a href="#testimonios" class="text-white/80 hover:text-white transition-colors">Testimonios</a>
         <a href="#precios" class="text-white/80 hover:text-white transition-colors">Precios</a>
         <a href="https://app.herenciacosmica.com" class="mystical-button text-sm px-6 py-2">
@@ -482,7 +482,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
     <div class="md:hidden hidden" id="mobile-menu">
       <div class="pt-4 pb-2 space-y-2">
         <a href="#inicio" class="block text-white/80 hover:text-white py-2">Inicio</a>
-        <a href="#servicios" class="block text-white/80 hover:text-white py-2">Servicios</a>
+        <a href="#detalles" class="block text-white/80 hover:text-white py-2">Detalles</a>
         <a href="#testimonios" class="block text-white/80 hover:text-white py-2">Testimonios</a>
         <a href="#precios" class="block text-white/80 hover:text-white py-2">Precios</a>
         <a href="https://app.herenciacosmica.com" class="block mystical-button text-center mt-4">
@@ -612,7 +612,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
 // Features section
 ---
 
-<section id="servicios" class="section-padding bg-gradient-to-b from-purple-900/20 to-indigo-900/20">
+<section id="detalles" class="section-padding bg-gradient-to-b from-purple-900/20 to-indigo-900/20">
   <div class="container mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center mb-16">
@@ -1149,7 +1149,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
         <h4 class="text-white font-semibold mb-4">Enlaces Rápidos</h4>
         <ul class="space-y-2">
           <li><a href="#inicio" class="text-white/60 hover:text-white transition-colors">Inicio</a></li>
-          <li><a href="#servicios" class="text-white/60 hover:text-white transition-colors">Servicios</a></li>
+          <li><a href="#detalles" class="text-white/60 hover:text-white transition-colors">Detalles</a></li>
           <li><a href="#testimonios" class="text-white/60 hover:text-white transition-colors">Testimonios</a></li>
           <li><a href="https://app.herenciacosmica.com" class="text-white/60 hover:text-white transition-colors">Iniciar Sesión</a></li>
         </ul>
@@ -1157,7 +1157,7 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${Astro.site}${ogIma
 
       <!-- Services -->
       <div>
-        <h4 class="text-white font-semibold mb-4">Servicios</h4>
+        <h4 class="text-white font-semibold mb-4">Detalles</h4>
         <ul class="space-y-2">
           <li><a href="https://app.herenciacosmica.com/ver-reporte-gratuito" class="text-white/60 hover:text-white transition-colors">Carta Natal Gratuita</a></li>
           <li><a href="https://app.herenciacosmica.com/reporte-familiar" class="text-white/60 hover:text-white transition-colors">Reporte Familiar</a></li>
@@ -1241,7 +1241,7 @@ Disallow: /api/
 
 # Allow important pages
 Allow: /
-Allow: /servicios
+Allow: /detalles
 Allow: /precios
 Allow: /sobre-nosotros
 Allow: /blog/
@@ -1263,7 +1263,7 @@ export const SITE_CONFIG = {
 
 export const NAVIGATION = [
   { name: 'Inicio', href: '#inicio' },
-  { name: 'Servicios', href: '#servicios' },
+  { name: 'Detalles', href: '#detalles' },
   { name: 'Testimonios', href: '#testimonios' },
   { name: 'Precios', href: '#precios' }
 ];
