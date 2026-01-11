@@ -1,0 +1,179 @@
+---
+import Layout from '../components/layout/Layout.astro';
+import '../styles/global.css';
+
+const seoData = {
+  title: "Política de Privacidad - Herencia Cósmica",
+  description: "Consulta nuestra política de privacidad para entender cómo protegemos y manejamos tu información personal y datos astrológicos.",
+  keywords: "privacidad, protección de datos, herencia cósmica, política de privacidad, datos astrológicos",
+  ogImage: "/images/og-default.jpg"
+};
+---
+
+<Layout {...seoData}>
+  <section class="relative min-h-screen pt-32 pb-20 overflow-hidden">
+    <!-- Background Effects (Sharing the same aesthetic as contacto.astro) -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <h1 class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-indigo-400 bg-clip-text text-transparent mb-6">
+            Política de Privacidad
+          </h1>
+          <p class="text-lg text-white/60">
+            Última actualización: 10 de enero de 2026
+          </p>
+        </div>
+
+        <!-- Content Container -->
+        <div class="bg-white/5 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/10 shadow-2xl prose prose-invert prose-purple max-w-none">
+          <div class="space-y-8 text-white/80 leading-relaxed">
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">1. Introducción</h2>
+              <p>
+                En Herencia Cósmica, valoramos profundamente tu privacidad y la confianza que depositas en nosotros al compartir tus datos personales y astrológicos.
+                Esta Política de Privacidad explica cómo recopilamos, utilizamos, almacenamos y protegemos los datos personales que se obtienen a través del sitio web <a class="underline" href="https://www.herenciacosmica.com" target="_blank">https://www.herenciacosmica.com</a>
+ y de los servicios asociados.
+              </p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">2. Información que Recopilamos</h2>
+              <p>Para proporcionarte una experiencia personalizada, recopilamos diferentes tipos de información:</p>
+              <strong>a) Datos de identificación</strong>
+              <ul class="list-disc pl-6 mb-4">
+                <li>- Nombre y apellidos</li>
+                <li>- Dirección de correo electrónico</li>
+                <li>- País de residencia</li>
+              </ul>
+              <strong>b) Datos necesarios para servicios personalizados</strong>
+              <ul class="list-disc pl-6 mb-4">
+                <li>- Fecha, hora y lugar de nacimiento</li>
+                <li>- Lugar de nacimiento</li>
+                <li>- Hora de nacimiento (si es proporcionada voluntariamente)</li>
+              </ul>
+              <p>Estos datos se solicitan únicamente cuando son necesarios para generar informes, análisis o contenidos personalizados.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">3. Uso de la Información</h2>
+              <p>Utilizamos tus datos exclusivamente para:</p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>- Proporcionar contenidos gratuitos (tests, guías, recursos descargables).</li>
+                <li>- Elaborar informes personalizados solicitados por la persona usuaria.</li>
+                <li>- Enviar comunicaciones informativas, educativas o promocionales relacionadas con Herencia Cósmica.</li>
+                <li>- Gestionar consultas, solicitudes o soporte.</li>
+                <li>- Mejorar la experiencia de navegación y funcionamiento del sitio web.</li>
+                <li>- Cumplir obligaciones legales cuando corresponda.</li>
+              </ul>
+
+              <p>Herencia Cósmica no vende ni cede datos personales a terceros con fines comerciales.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">4. Base legal para el tratamiento</h2>
+              <p>
+                El tratamiento de los datos personales se basa en:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>- El consentimiento expreso otorgado por la persona usuaria al completar formularios.</li>
+                <li>- La ejecución de un servicio solicitado (informes, análisis, contenidos personalizados).</li>
+                <li>- El interés legítimo en mejorar los servicios y la experiencia del sitio web.</li>
+                <li>- El cumplimiento de obligaciones legales aplicables.</li>
+              </ul>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">5. Servicios de terceros</h2>
+              <p>
+               Herencia Cósmica puede utilizar servicios de terceros para el correcto funcionamiento del sitio, tales como:
+              </p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>- Plataformas de email marketing</li>
+                <li>- Herramientas de analítica web</li>
+                <li>- Proveedores de hosting y almacenamiento</li>
+                <li>- Plataformas de pago (cuando aplique)</li>
+                <li>- Servicios de análisis web para medir el tráfico y mejorar la experiencia del usuario</li>
+              </ul>
+              <p>Estos proveedores solo acceden a la información necesaria para prestar el servicio contratado y están sujetos a sus propias políticas de privacidad y confidencialidad.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">6. Cookies</h2>
+              <p>Este sitio web utiliza cookies propias y de terceros para:</p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>- Analizar el tráfico y comportamiento de navegación.</li>
+                <li>- Recordar preferencias del usuario.</li>
+                <li>- Optimizar campañas de marketing y contenido.</li>
+              </ul>
+              <p>La persona usuaria puede configurar su navegador para rechazar o eliminar cookies en cualquier momento. El uso continuado del sitio implica la aceptación del uso de cookies.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">7. Protección y almacenamiento de los datos</h2>
+              <p>Herencia Cósmica adopta medidas técnicas y organizativas razonables para proteger los datos personales contra accesos no autorizados, pérdida, uso indebido o divulgación.</p>
+              <p>Los datos se conservan únicamente durante el tiempo necesario para cumplir la finalidad para la cual fueron recopilados o mientras exista una relación activa con la persona usuaria.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">8. Derechos de las personas usuarias</h2>
+              <p>La persona usuaria tiene derecho a:</p>
+              <ul class="list-disc pl-6 space-y-2 mb-4">
+                <li>- Acceder a sus datos personales.</li>
+                <li>- Solicitar la rectificación de datos inexactos.</li>
+                <li>- Solicitar la eliminación de sus datos.</li>
+                <li>- Limitar u oponerse al tratamiento de sus datos.</li>
+                <li>- Retirar su consentimiento en cualquier momento.</li>
+              </ul>
+              <p>Para ejercer estos derechos, puede escribir a: <a href="mailto:info@miherenciacosmica.com">info@miherenciacosmica.com</a></p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">9. Contenido simbólico y aclaración importante</h2>
+              <p>Los servicios, informes y contenidos ofrecidos por Herencia Cósmica tienen un carácter simbólico, educativo y de desarrollo personal. No sustituyen asesoramiento médico, psicológico, legal ni financiero profesional.</p>
+              <p>La persona usuaria es responsable del uso que haga de la información recibida.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">10. Enlaces a sitios externos</h2>
+              <p>El sitio web puede contener enlaces a páginas de terceros. Herencia Cósmica no se responsabiliza por las políticas de privacidad ni por el contenido de dichos sitios externos.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">11. Cambios en esta Política</h2>
+              <p>Herencia Cósmica se reserva el derecho de modificar esta Política de Privacidad en cualquier momento. Las actualizaciones se publicarán en esta misma página con la fecha correspondiente.</p>
+            </section>
+
+            <section>
+              <h2 class="text-2xl font-bold text-white mb-4">12. Contacto</h2>
+              <p>Para cualquier duda relacionada con esta Política de Privacidad o el tratamiento de datos personales, puede contactarnos en: <a href="mailto:info@miherenciacosmica.com">info@miherenciacosmica.com</a></p>
+            </section>
+
+            <div class="pt-8 border-t border-white/10 text-center">
+              <p>¿Tienes dudas? <a href="/contacto" class="text-purple-400 hover:text-purple-300 transition-colors">Contáctanos</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Custom prose styles to match the theme */
+  .prose h2 {
+    color: white;
+    margin-top: 2rem;
+  }
+  .prose p {
+    margin-bottom: 1.5rem;
+  }
+  .prose strong {
+    color: #c084fc; /* purple-400 */
+  }
+</style>
